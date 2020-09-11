@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:batch="http://www.mulesoft.org/schema/mule/batch" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/batch http://www.mulesoft.org/schema/mule/batch/current/mule-batch.xsd">
+	<flow name="myproject2Flow" doc:id="2d289794-c1d9-4a5b-b04b-f18a632b284f" >
+		<http:listener doc:name="Listener" doc:id="5423aa16-7ef9-462f-9e2e-8a08434bc712" config-ref="HTTP_Listener_config" path="/allEmployees" allowedMethods="GET"/>
+		<logger level="INFO" doc:name="Logger" doc:id="58025022-c603-4f54-8e1f-15592ceb28a7" message="#[message.attributes.headers.ConversationId]"/>
+		<http:request method="GET" doc:name="Request" doc:id="e4a48624-3599-4c58-85b6-970191b5c880" config-ref="HTTP_Request_configuration" path="/employees"/>
+		<ee:transform doc:name="Transform Message" doc:id="c1dd981c-6b53-4f72-918b-911387812e7c" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload.data]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="8bac2d37-1a48-4d06-ad63-577092a0dde5" />
+	</flow>
+</mule>

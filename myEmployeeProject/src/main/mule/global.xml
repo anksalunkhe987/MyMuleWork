@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="43a00bea-aafd-47aa-8e43-5fe81a47c304" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<db:config name="Derby_DBConnection" doc:name="Database Config" doc:id="c0eb6ddd-76db-473c-845d-adb7a3bccb40" >
+		<db:generic-connection url="jdbc:derby://localhost:1527/memory:training" driverClassName="org.apache.derby.jdbc.ClientDriver"/>
+	</db:config>
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="354c030e-889e-4679-a78f-1b4870a1e4ab" basePath="/api/v1" >
+		<http:request-connection host="dummy.restapiexample.com" port="80" />
+	</http:request-config>
+</mule>
