@@ -33,3 +33,4 @@ jobs:
       - name: Deployment
         run:
           cd myEmployeeProject
+          ls
