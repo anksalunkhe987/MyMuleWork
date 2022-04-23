@@ -31,4 +31,4 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Deployment
-        run: mvn package deploy -DmuleDeploy -Dusername=AnypointUsername -Dpassword=AnypointPassword -Dworkers=1 -Dworker.type=Micro -Denvironment=Sandbox -Dmule.version=4.2.2
+        run: mvn package deploy -DmuleDeploy -Dusername=anksalunkhe98765 -Dpassword=Mayank!@94234 -Dworkers=1 -Dworker.type=Micro -Denvironment=Sandbox -Dmule.version=4.2.2
