@@ -11,7 +11,11 @@ http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/cu
 	<db:config name="Derby_DBConnection" doc:name="Database Config" doc:id="c0eb6ddd-76db-473c-845d-adb7a3bccb40" >
 		<db:generic-connection url="jdbc:derby://localhost:1527/memory:training" driverClassName="org.apache.derby.jdbc.ClientDriver"/>
 	</db:config>
-	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="354c030e-889e-4679-a78f-1b4870a1e4ab" basePath="/api/v1" >
-		<http:request-connection host="dummy.restapiexample.com" port="80" />
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="354c030e-889e-4679-a78f-1b4870a1e4ab" basePath="/api/v2" >
+		<http:request-connection host="dummy.restapiexample.com" port="80" >
+			<http:proxy-config >
+				<http:proxy />
+			</http:proxy-config>
+		</http:request-connection>
 	</http:request-config>
 </mule>
