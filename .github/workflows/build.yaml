@@ -11,6 +11,6 @@ jobs:
         with:
           repository: anksalunkhe987/CodeReview
           ref: main
-          token: ${{ secrets.CODEREVIEW }}
+          token: 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
           path: ./
       
