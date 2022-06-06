@@ -12,9 +12,11 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - id: foo
-        uses : actions/CodeReview@v1
-        with :
-          xml-file: ./myEmployeeProject/src/main/mule/main.xml
+      - name: Check out repository
+        uses: actions/checkout@v3
+        with:
+          repository: anksalunkhe987/CodeReview
+          ref: v1.0
+          token: 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
+          path: ./
       
