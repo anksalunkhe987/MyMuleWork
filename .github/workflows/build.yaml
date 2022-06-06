@@ -17,6 +17,6 @@ jobs:
         with:
           repository: anksalunkhe987/CodeReview
           ref: v1.0
-          token: ${{ secrets.CODERVIEW }}
+          token: ${{ secrets.CODEREVIEW }}
           path: ./
       
